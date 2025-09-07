@@ -1,207 +1,736 @@
-/* Basic Reset & Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advith V Suvarna - Professional Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Basic Reset & Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f4f7f6;
-    transition: background-color 0.3s ease;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            transition: background-color 0.3s ease;
+        }
 
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
-}
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-/* Header & Hero Section */
-.hero {
-    background: linear-gradient(135deg, #1d2671, #5c207a);
-    color: #fff;
-    text-align: center;
-    padding: 100px 20px;
-    position: relative;
-    overflow: hidden;
-}
+        /* Header & Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1d2671, #5c207a);
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 70%);
-    animation: pulse 15s infinite;
-    z-index: 1;
-}
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 70%);
+            animation: pulse 15s infinite;
+            z-index: 1;
+        }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
 
-.hero h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    letter-spacing: 1.5px;
-}
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1.5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
 
-.tagline {
-    font-size: 1.2rem;
-    font-weight: 300;
-    margin-bottom: 25px;
-    color: #d1d8e0;
-}
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 25px;
+            color: #d1d8e0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-.social-links a {
-    color: #fff;
-    font-size: 1.8rem;
-    margin: 0 15px;
-    transition: transform 0.3s ease;
-}
+        .social-links {
+            margin-top: 30px;
+        }
 
-.social-links a:hover {
-    transform: scale(1.2);
-}
+        .social-links a {
+            color: #fff;
+            font-size: 1.8rem;
+            margin: 0 15px;
+            transition: transform 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+        }
 
-/* Sections */
-.section {
-    background: #fff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    margin-bottom: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        .social-links a:hover {
+            transform: scale(1.2);
+            color: #d1d8e0;
+        }
 
-.section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
+        /* Navigation */
+        .nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
 
-.section-title {
-    font-size: 2.2rem;
-    font-weight: 600;
-    color: #1d2671;
-    margin-bottom: 25px;
-    position: relative;
-}
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
 
-.section-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background-color: #5c207a;
-    margin-top: 10px;
-    border-radius: 2px;
-}
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
 
-/* Skills Grid */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
+        .nav a:hover {
+            color: #5c207a;
+        }
 
-.skill-card {
-    text-align: center;
-    padding: 30px 20px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
+        /* Sections */
+        .section {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.skill-card i {
-    font-size: 3rem;
-    color: #5c207a;
-    margin-bottom: 15px;
-}
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
 
-.skill-card h4 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #1d2671;
+            margin-bottom: 25px;
+            position: relative;
+        }
 
-/* Projects & Experience Grid */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-}
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #5c207a;
+            margin-top: 10px;
+            border-radius: 2px;
+        }
 
-.project-card, .experience-card {
-    background: #f8f9fa;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    border-left: 5px solid #5c207a;
-    transition: transform 0.3s ease;
-}
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
 
-.project-card:hover, .experience-card:hover {
-    transform: translateY(-5px);
-}
+        .skill-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
 
-.project-card h3, .experience-card h3 {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #1d2671;
-    margin-bottom: 10px;
-}
+        .skill-card:hover {
+            transform: translateY(-3px);
+        }
 
-.experience-card {
-    border-left: 5px solid #1d2671;
-}
+        .skill-card i {
+            font-size: 3rem;
+            color: #5c207a;
+            margin-bottom: 15px;
+        }
 
-/* Contact Section */
-.contact-info {
-    font-size: 1.1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+        .skill-card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1d2671;
+        }
 
-.contact-info i {
-    color: #5c207a;
-    margin-right: 10px;
-}
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
 
-/* Footer */
-.footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: #fff;
-    margin-top: 30px;
-}
+        .project-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #5c207a;
+            transition: transform 0.3s ease;
+        }
 
-/* Animations */
-@keyframes pulse {
-    0% { transform: scale(0.5); opacity: 0; }
-    50% { opacity: 0.5; }
-    100% { transform: scale(1.5); opacity: 0; }
-}
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
+        .project-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1d2671;
+            margin-bottom: 15px;
+        }
 
-    .tagline {
-        font-size: 1rem;
-    }
+        .project-card p {
+            margin-bottom: 15px;
+            color: #666;
+        }
 
-    .section-title {
-        font-size: 1.8rem;
-    }
-}
+        .project-features {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .project-features li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .project-features li::before {
+            content: '▸';
+            color: #5c207a;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Education & Experience */
+        .timeline-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #1d2671;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1d2671;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item .institution {
+            font-weight: 500;
+            color: #5c207a;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .period {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .cert-card i {
+            font-size: 2.5rem;
+            color: #5c207a;
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .contact-item {
+            background: #f8f9fa;
+            padding: 30px 20px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-item i {
+            font-size: 2.5rem;
+            color: #5c207a;
+            margin-bottom: 15px;
+        }
+
+        .contact-item h4 {
+            color: #1d2671;
+            margin-bottom: 10px;
+        }
+
+        .contact-item a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #5c207a;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #1d2671, #5c207a);
+            color: #fff;
+            margin-top: 50px;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #1d2671, #5c207a);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #5c207a, #1d2671);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Advith V Suvarna</h1>
+            <p class="tagline">Computer Science Engineering Student | Full Stack Developer | Marketing Enthusiast</p>
+            <p style="font-size: 1rem; margin-bottom: 20px;">
+                <i class="fas fa-map-marker-alt"></i> Mangalore, Karnataka | 
+                <i class="fas fa-phone"></i> 7349428091
+            </p>
+            <div class="social-links">
+                <a href="mailto:advithsuvarna15@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/advithvsuvarna" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/advith-suvarna" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#activities">Activities</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- About Section -->
+        <section id="about" class="section animate-on-scroll">
+            <h2 class="section-title">About Me</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #666;">
+                Enthusiastic engineering student skilled in Java, web development, marketing, and creative design. 
+                Known for strong problem-solving abilities, leadership in event marketing, and a collaborative approach. 
+                Eager to apply both technical and marketing expertise to real-world projects while continuing to grow professionally.
+            </p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section animate-on-scroll">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-java"></i>
+                    <h4>Programming Languages</h4>
+                    <p>Java, C, C++, MySQL</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h4>Web Development</h4>
+                    <p>HTML, CSS, JavaScript, WordPress</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-cloud"></i>
+                    <h4>Cloud Platforms</h4>
+                    <p>Google Cloud Fundamentals</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h4>Design Tools</h4>
+                    <p>Canva, Photoshop (Basic)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section animate-on-scroll">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3><i class="fas fa-hotel"></i> Hotel Management System</h3>
+                    <p>Comprehensive system to manage hotel reservations, room availability, and billing with detailed reporting capabilities.</p>
+                    <ul class="project-features">
+                        <li>ReservationAdd: Book new reservations</li>
+                        <li>ReservationUpdate: Change reservation details</li>
+                        <li>ReservationDelete: Cancel reservations</li>
+                        <li>Reports: Revenue analysis and occupancy tracking</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3><i class="fas fa-file-alt"></i> CV Analyser (Resume Optimization Tool)</h3>
+                    <p>Python-based tool to enhance ATS compatibility of resumes by analyzing content, keyword density, and formatting with Gemini API integration.</p>
+                    <ul class="project-features">
+                        <li>Resume parsing and keyword matching</li>
+                        <li>ATS scoring and job-fit suggestions</li>
+                        <li>User-friendly feedback interface</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3><i class="fas fa-shield-alt"></i> Secure User Authentication System</h3>
+                    <p>Robust login/register system with advanced security features and role-based access control.</p>
+                    <ul class="project-features">
+                        <li>Password hashing and token-based (JWT) sessions</li>
+                        <li>Role-based access control</li>
+                        <li>Security best practices implementation</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3><i class="fas fa-users"></i> Employee Management System</h3>
+                    <p>Full-stack MERN application for comprehensive employee management with analytics and authentication.</p>
+                    <ul class="project-features">
+                        <li>CRUD operations with filtering capabilities</li>
+                        <li>Analytics dashboard</li>
+                        <li>Secure authentication system</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3><i class="fas fa-shopping-cart"></i> Local Store E-commerce Platform</h3>
+                    <p>Complete e-commerce solution with product management, cart functionality, and integrated payment system.</p>
+                    <ul class="project-features">
+                        <li>Product listings and cart management</li>
+                        <li>Orders management system</li>
+                        <li>Integrated payments and REST APIs</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3><i class="fas fa-comments"></i> Real-Time Chat Application</h3>
+                    <p>WebSocket-based messaging application supporting both individual and group conversations.</p>
+                    <ul class="project-features">
+                        <li>1:1 and group messaging capabilities</li>
+                        <li>Chat rooms functionality</li>
+                        <li>Real-time presence tracking</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section animate-on-scroll">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline-item">
+                <h3>Bachelor of Engineering in Computer Science</h3>
+                <div class="institution">Alva's Institute of Engineering and Technology, Mijar, Karnataka</div>
+                <div class="period">2022 – 2026</div>
+                <p><strong>CGPA:</strong> 7.1</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Pre-University Course (PUC)</h3>
+                <div class="institution">Shree Gokarnanatheshwara College, Mangalore, Karnataka</div>
+                <div class="period">2020 – 2022</div>
+            </div>
+            <div class="timeline-item">
+                <h3>Secondary School Leaving Certificate (SSLC)</h3>
+                <div class="institution">Vidhya Higher Primary School Derebail-Konchady, Mangalore, Karnataka</div>
+                <div class="period">2020</div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="section animate-on-scroll">
+            <h2 class="section-title">Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>Infosys Springboard</h4>
+                    <p>Java Fundamentals, DSA, DBMS, Introduction to NoSQL</p>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-code"></i>
+                    <h4>CodeChef Certification</h4>
+                    <p>ADA and DSA</p>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-cloud"></i>
+                    <h4>Salesforce Trailhead</h4>
+                    <p>Agentforce Champion (Level 1) & Innovator (Level 2)</p>
+                </div>
+                <div class="cert-card">
+                    <i class="fab fa-microsoft"></i>
+                    <h4>Azure Certification</h4>
+                    <p>In Progress</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities Section -->
+        <section id="activities" class="section animate-on-scroll">
+            <h2 class="section-title">Extracurricular Activities</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3><i class="fas fa-bullhorn"></i> Marketing Leadership</h3>
+                    <ul class="project-features">
+                        <li>Marketing Head for TEDx at Alva's Institute</li>
+                        <li>Led promotional strategy and audience engagement campaigns</li>
+                        <li>Marketing lead for multiple technical and non-technical college groups</li>
+                    </ul>
+                </div>
+                <div class="project-card">
+                    <h3><i class="fas fa-palette"></i> Creative Design</h3>
+                    <ul class="project-features">
+                        <li>Designed event posters, t-shirts, and websites</li>
+                        <li>Created promotional material using Canva and design tools</li>
+                        <li>Freelancer with multiple completed creative projects</li>
+                    </ul>
+                </div>
+                <div class="project-card">
+                    <h3><i class="fas fa-hands-helping"></i> Community Service</h3>
+                    <ul class="project-features">
+                        <li>Conducted computer fundamentals session at rural school in Malali</li>
+                        <li>Volunteered in Pragathi Job Fair 2024 as part of Alva's EEC team</li>
+                        <li>Lead Coordinator of Alva's Tulu Sanga</li>
+                    </ul>
+                </div>
+                <div class="project-card">
+                    <h3><i class="fas fa-trophy"></i> Event Management</h3>
+                    <ul class="project-features">
+                        <li>Coordinated and hosted game event during Technofia tech fest</li>
+                        <li>Organized and hosted intercollege events</li>
+                        <li>Drove event participation through strategic marketing</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section animate-on-scroll">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Email</h4>
+                    <a href="mailto:advithsuvarna15@gmail.com">advithsuvarna15@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h4>Phone</h4>
+                    <a href="tel:+917349428091">+91 7349428091</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <h4>GitHub</h4>
+                    <a href="https://github.com/advithvsuvarna" target="_blank">advithvsuvarna</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <h4>LinkedIn</h4>
+                    <a href="https://linkedin.com/in/advith-suvarna" target="_blank">Advith Suvarna</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Advith V Suvarna. All rights reserved.</p>
+        <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">
+            Enthusiastic Developer | Creative Marketer | Problem Solver
+        </p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-on-scroll');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Add interactive hover effects
+        document.querySelectorAll('.skill-card, .project-card, .cert-card, .contact-item').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
